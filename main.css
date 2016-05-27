@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Sansita+One|Pontano+Sans');
+
+.listItem {
+    font-family: 'Sansita One', cursive;
+    color: #2dc6ae;
+    font-size: 200%;
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    padding: 10px;
+    margin: auto;
+    width: 25%;
+    border: 3px solid rgba(000, 00, 00, 0);
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Pontano Sans', sans-serif;
+}
+
+
+.box-header {
+    display: block;
+    clear: both;
+    margin: 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 10px 10px 0 0;
+    background-color: #f2f2f2;
+    padding: 8px 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.box-content {
+    display: block;
+    clear: both;
+    background-color: #fff;
+    padding: 8px 20px;
+}
+
+.box {
+    display: inline-block;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    height: 40px;
+    float: none;
+}
+input {
+    padding-bottom: 40em;
+}
+
+td {
+  float: left  ; 
+}
+
+orderItemsBox {
+  border: 1px solid rgb(41, 41, 41)
+}
