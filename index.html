@@ -25,11 +25,11 @@
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('cake')">Cake</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('taco')">Taco</button>
                 </div>
-            <div>
+            <div ng-show="foodOrderItems.length > 0">
                 <br>
                 <br>
                 <div>
-                <table class="table table-striped header-head">
+                <table class="table table-striped header-head" >
                         <thead>
                             <tr>
                                 <th class="header-top">Name</th>
