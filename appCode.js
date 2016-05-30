@@ -8,14 +8,12 @@ app.controller('firstController', function ($scope) {
     $scope.orderTotalFormatted = '';
     $scope.selectAll = false;
     
-    $scope.selectAllItems = function(){
+    $scope.selectAllItems = function(){        
         $scope.toppingsList.forEach(function(item){
             if(item.product === $scope.toppingFilter) {
              item.selected = !$scope.selectAll;   
             }
-            
-            });
-            
+        });            
     }
     
     $scope.findItemById = function(id){
@@ -35,7 +33,8 @@ app.controller('firstController', function ($scope) {
         Math.random().toString(36).substring(2, 15);  
     }        
         
-    $scope.addFoodItem =  function(foodItemName){        
+    $scope.addFoodItem =  function(foodItemName){  
+        $scope.selectAll = false;
         $scope.toppingFilter = foodItemName;
         $scope.toppingsList.forEach(function(item){item.selected = false;});    
         $scope.editedItemID = $scope.makeQuickGUID();        
