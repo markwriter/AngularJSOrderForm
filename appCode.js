@@ -1,12 +1,23 @@
-var app = angular.module("foodOrderApp", []);
+var app = angular.module("foodOrderApp", ['ngMaterial', 'ngMessages']);
 
-    app.controller('firstController', function ($scope) {
+app.controller('firstController', function ($scope) {
         "use strict";
     
     $scope.foodOrderItems = [];
     $scope.orderTotal = 0;
     $scope.orderTotalFormatted = '';
-        
+    $scope.selectAll = false;
+    
+    $scope.selectAllItems = function(){
+        $scope.toppingsList.forEach(function(item){
+            if(item.product === $scope.toppingFilter) {
+             item.selected = !$scope.selectAll;   
+            }
+            
+            });
+            
+    }
+    
     $scope.findItemById = function(id){
         
     }    
@@ -110,8 +121,8 @@ var app = angular.module("foodOrderApp", []);
         {product: 'pizza', name: 'Sausage', price: 0.15, selected: false },
         {product: 'pizza', name: 'Sauce', price: 0.03, selected: false },
         {product: 'pizza', name: 'Cheese', price: 0.10, selected: false },
-        {product: 'cake', name: 'Gumdrops', price: 0.12, selected: false },          
-        {product: 'cake', name: 'Jelly Beans', price: 0.12, selected: false },        
+        {product: 'cake', name: 'Gumdrops', price: 0.12, selected: false },     
+        {product: 'cake', name: 'Jelly Beans', price: 0.12, selected: false },   
         {product: 'cake', name: 'Strawberries', price: 0.12, selected: false },
         {product: 'taco', name: 'Red Salsa', price: 0.10, selected: false },
         {product: 'taco', name: 'Beans', price: 0.10, selected: false },
