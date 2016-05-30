@@ -2,9 +2,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
         <script src="appCode.js"></script>
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
@@ -15,23 +20,33 @@
         <h2>What do they want?</h2>
         <br>
         <div>
+            <div>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('pizza')">Pizza</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('cake')">Cake</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('taco')">Taco</button>
+                </div>
             <div>
                 <br>
                 <br>
-                <table class="table table-striped">
-                    <tbody>
+                <div>
+                <table class="table table-striped header-head">
+                        <thead>
+                            <tr>
+                                <th class="header-top">Name</th>
+                                <th class="header-top">Base</th>
+                                <th class="header-top">Total</th>
+                            </tr>
+                        </thead>                    
+                    <tbody class="header-top">
                         <tr ng-repeat="foodOrderItem in foodOrderItems">
                             <td>
                                 {{foodOrderItem.name}}
                             </td>
                             <td>
-                                {{foodOrderItem.basePrice}}
+                                &#36;{{foodOrderItem.basePrice}}
                             </td>
                             <td>
-                                {{foodOrderItem.itemTotal}}
+                                &#36;{{foodOrderItem.itemTotal}}
                             </td>
                             <td>
                             <br>
@@ -51,6 +66,7 @@
                         </tr>
                         </tbody>
                     </table>
+                    </div>
                 <span>The order total is: &#36;{{orderTotalFormatted}}</span>
             </div>
               <div class="modal fade" id="toppingModal" role="dialog">
@@ -58,13 +74,22 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">What do they want on their {{toppingFilter}}?</h4>
+                      <h3 class="modal-title">What do they want on their {{toppingFilter}}?</h3>
                     </div>
                     <div class="modal-body">                        
-                            <table class="table">                               
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th><md-checkbox ng-model="selectAll" ng-click="selectAllItems()"></md-checkbox>         
+                                            Selected                                        
+                                        </th>
+                                        <th>Topping Name</th>
+                                        <th>Topping Price</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr ng-repeat="topping in toppingsList | filter:{product: toppingFilter}">
-                                        <td><input type="checkbox" ng-model="topping.selected"></td>
+                                        <td><md-checkbox ng-model="topping.selected"></md-checkbox></td>
                                         <td>{{topping.name}}</td>
                                         <td>${{topping.price}}</td>
                                     </tr>
