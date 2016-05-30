@@ -48,6 +48,7 @@ app.controller('firstController', function ($scope) {
     }
     
     $scope.editItem = function (id){
+        $scope.toppingsList.forEach(function(item){item.selected = false;});
         for (var i=0; i < $scope.foodOrderItems.length; i++){
                 if ($scope.foodOrderItems[i].id  === id ){
                     $scope.foodItem = $scope.foodOrderItems[i];
