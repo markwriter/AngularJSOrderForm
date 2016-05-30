@@ -118,7 +118,7 @@ app.controller('firstController', function ($scope) {
         {product: 'pizza', name: 'Onions', price: 0.15, selected: false },
         {product: 'pizza', name: 'Mushrooms', price: 0.15, selected: false },
         {product: 'pizza', name: 'Sausage', price: 0.15, selected: false },
-        {product: 'pizza', name: 'Sauce', price: 0.03, selected: false },
+        {product: 'pizza', name: 'Bacon', price: 0.03, selected: false },
         {product: 'pizza', name: 'Cheese', price: 0.10, selected: false },
         {product: 'cake', name: 'Gumdrops', price: 0.12, selected: false },     
         {product: 'cake', name: 'Jelly Beans', price: 0.12, selected: false },   
