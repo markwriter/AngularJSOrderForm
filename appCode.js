@@ -45,7 +45,8 @@ app.controller('firstController', function ($scope) {
             name : foodItemName,
             basePrice : $scope.getBasePriceForFood(foodItemName),
             toppings: [],
-            itemTotal:0
+            itemTotal:0,
+            comments:""
         }        
     }
     

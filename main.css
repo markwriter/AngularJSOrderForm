@@ -74,7 +74,12 @@ orderItemsBox {
 
 .header-top{
     float: left;
-}
+} 
+  
+.headerItem{
+    width: 150px;
+} 
+
 md-checkbox.md-checked ._md-icon {
          background-color: #3F51B5; 
 }
