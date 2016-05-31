@@ -7,6 +7,8 @@ app.controller('firstController', function ($scope) {
     $scope.orderTotal = 0;
     $scope.orderTotalFormatted = '';
     $scope.selectAll = false;
+    $scope.itemQuantity = 1;
+    $scope.itemQuantityChoices = [1,2,3,4,5];
     
     $scope.selectAllItems = function(){        
         $scope.toppingsList.forEach(function(item){
@@ -43,7 +45,7 @@ app.controller('firstController', function ($scope) {
             name : foodItemName,
             basePrice : $scope.getBasePriceForFood(foodItemName),
             toppings: [],
-            itemTotal:0         
+            itemTotal:0
         }        
     }
     

@@ -30,7 +30,7 @@ li a {
     text-decoration: none;
 }
 
-h2 {
+h2 , h4 {
     font-family: 'Pontano Sans', sans-serif;
 }
 
@@ -68,12 +68,6 @@ button {
     height: 40px;
     float: none;
 }
-input {
-    padding-bottom: 40em;
-}
-
-
-
 orderItemsBox {
   border: 1px solid rgb(41, 41, 41)
 }
@@ -82,4 +76,10 @@ orderItemsBox {
     float: left;
 }
 md-checkbox.md-checked ._md-icon {
-         background-color: #3F51B5;
+         background-color: #3F51B5; 
+}
+    
+.input-box {
+    width: 60px;
+    height: 30px;
+}   

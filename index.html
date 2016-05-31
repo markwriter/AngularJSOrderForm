@@ -10,6 +10,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+        
         <script src="appCode.js"></script>
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
@@ -69,7 +72,7 @@
                         </tbody>
                     </table>
                     </div>
-                <H4>The order total is: &#36;{{orderTotalFormatted}}</H4>
+                <h4>The order total is: &#36;{{orderTotalFormatted}}</h4>
             </div>
               <div class="modal fade" id="toppingModal" role="dialog">
                 <div class="modal-dialog modal-lg">
@@ -82,9 +85,7 @@
                             <table class="table table-condensed">
                                 <thead>
                                     <tr>
-                                        <th><md-checkbox ng-model="selectAll" ng-click="selectAllItems()"></md-checkbox>         
-                                            Selected                                        
-                                        </th>
+                                        <th><md-checkbox ng-model="selectAll" ng-click="selectAllItems()"></md-checkbox>Selected</th>  
                                         <th>Topping Name</th>
                                         <th>Topping Price</th>
                                     </tr>
@@ -97,7 +98,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        
+                            <h4>How many do they want?</h4>
+                            <br>
+                            <input class="input-box" type="number" min="1" max="5"/>
                     </div>
                     <div class="modal-footer">
                         <div class="btn-group">
