@@ -1,7 +1,7 @@
 var app = angular.module("foodOrderApp", ['ngMaterial', 'ngMessages']);
 
 app.controller('firstController', function ($scope) {
-        "use strict";
+    "use strict";
     
     $scope.foodOrderItems = [];
     $scope.orderTotal = 0;
@@ -10,13 +10,50 @@ app.controller('firstController', function ($scope) {
     $scope.itemQuantity = 1;
     $scope.itemQuantityChoices = [1,2,3,4,5];
     
-    $scope.selectAllItems = function(){        
+    $scope.toggleAllItems = function(){ 
+        var toggleValue = true;
+        if ($scope.isAllSelected() || $scope.isIndeterminate()){
+            toggleValue = false;
+        } 
+        
         $scope.toppingsList.forEach(function(item){
             if(item.product === $scope.toppingFilter) {
-             item.selected = !$scope.selectAll;   
+             item.selected = toggleValue;   
             }
         });            
     }
+
+    //determines if all items are checked    
+    $scope.isAllSelected = function() {
+        var itemCount = 0;
+        var selectedToppingCount = 0;
+        $scope.toppingsList.forEach(function(item){
+            if(item.product === $scope.toppingFilter) {
+             itemCount++;  
+                if (item.selected) {
+                    selectedToppingCount++
+                }
+            }
+        }); 
+        
+        return (selectedToppingCount === itemCount);
+    };   
+    
+    //Finds if only some of the items are checked.
+    $scope.isIndeterminate = function() {
+        var itemCount = 0;
+        var selectedToppingCount = 0;
+        $scope.toppingsList.forEach(function(item){
+            if(item.product === $scope.toppingFilter) {
+             itemCount++;  
+                if (item.selected) {
+                    selectedToppingCount++
+                }
+            }
+        }); 
+        
+        return (selectedToppingCount !== 0 && selectedToppingCount !== itemCount);
+   };
     
     $scope.findItemById = function(id){
         
@@ -45,8 +82,8 @@ app.controller('firstController', function ($scope) {
             name : foodItemName,
             basePrice : $scope.getBasePriceForFood(foodItemName),
             toppings: [],
-            itemTotal:0,
-            comments:""
+            itemTotal: 0,
+            comments: ""
         }        
     }
     
@@ -121,12 +158,14 @@ app.controller('firstController', function ($scope) {
         {product: 'pizza', name: 'Broccoli', price: 0.15, selected: false },
         {product: 'pizza', name: 'Onions', price: 0.15, selected: false },
         {product: 'pizza', name: 'Mushrooms', price: 0.15, selected: false },
-        {product: 'pizza', name: 'Sausage', price: 0.15, selected: false },        
+        {product: 'pizza', name: 'Sausage', price: 0.15, selected: false },       
         {product: 'pizza', name: 'Cheese', price: 0.10, selected: false },
+        
         {product: 'cake', name: 'Gumdrops', price: 0.12, selected: false },     
         {product: 'cake', name: 'Jelly Beans', price: 0.12, selected: false },   
         {product: 'cake', name: 'Strawberries', price: 0.12, selected: false },
         {product: 'cake', name: 'Candle(s)', price: 0.35, selected: false },
+        
         {product: 'taco', name: 'Red Salsa', price: 0.10, selected: false },
         {product: 'taco', name: 'Beans', price: 0.10, selected: false },
         {product: 'taco', name: 'Green Salsa', price: 0.10, selected: false },
