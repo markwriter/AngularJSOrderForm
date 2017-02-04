@@ -1,28 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-html {
-    background-color: #FFFFFF;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #d9d9d9;
     text-align: center;
 }
 
 #body {width: 100%;}
-#body h2 {color: #3E4348; font-family: 'Montserrat', sans-serif;}
+#body h2 {color: black; font-family: 'Montserrat', sans-serif;}
 
-header {
+header h2 {
     font-family: 'Montserrat', sans-serif;
+    color: black;
+    margin: 6px 0px 15px 0px;
+}
+
+header img {
+    margin: 5px 0px 5px 0px;
+    height: 35px;
+}
+
+md-checkbox {
+    width: 108px;
 }
 
 button {
-    height: 40px;
     font-family: 'Montserrat', sans-serif;
+    height: 40px;
+    width: 150px;
+}
+
+.close {
+    width: auto;
 }
 
 orderItemsBox {
   border: 1px solid rgb(41, 41, 41)
 } 
 
-md-checkbox.md-checked.blue .md-icon  { 
-    background-color: #3F51B5; 
+md-checkbox.md-checked .md-ink-ripple {
+    color: #3F51B5;
+}
+
+md-checkbox.md-checked ._md-icon  { 
+    background-color: #3F51B5;
+}
+
+.containerDiv {
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
 .modal {
@@ -30,14 +56,15 @@ md-checkbox.md-checked.blue .md-icon  {
 }
 
 .modal-title {
+    text-align: center;
     text-transform: capitalize;
 }
 
-button,html,input,select,textarea {
+button, html, input, select, textarea {
     font-family: 'Montserrat', sans-serif;
 }
 
 .input-box {
     width: 60px;
     height: 30px;
-}   
+}

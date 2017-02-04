@@ -12,27 +12,24 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-        
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <script src="appCode.js"></script>
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
     <header>
+        <img src="logo.svg">
         <h2>AngularJS Order Form</h2>
     </header>
     <body ng-app="foodOrderApp" ng-controller="firstController">
         <div id="body">
-            <h2>What do they want?</h2>
-        <div>
-            <div>
+            <h2>Select Item:</h2>
+            <div class="containerDiv">
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('pizza')">Pizza</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('cake')">Cake</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('taco')">Taco</button>
             </div>
-        </div>
             <div ng-show="foodOrderItems.length > 0">
-                <br>
-                <br>
-                <div>
+                <div class="orderDetailContainer">
                 <table class="table table-striped header-head" >
                         <thead>
                             <tr>
@@ -77,9 +74,9 @@
                                 </div>
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
-                    </div>
+                    </tbody>
+                </table>
+                </div>
                 <h4>The order total is: &#36;{{orderTotalFormatted}}</h4>
             </div>
               <div class="modal fade" id="toppingModal" role="dialog">
@@ -96,7 +93,7 @@
                                     <th>
                                         <md-checkbox
 											aria-label="Select All"
-											class="blue"
+											class="selectAll"
 											ng-checked="isAllSelected()"
 											md-indeterminate="isIndeterminate()"
 											ng-click="toggleAllItems()">
@@ -115,7 +112,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h4>How many do they want?</h4>
+                        <h4>How Many</h4>
                         <br>
                         <input class="input-box" type="number" min="1" max="5"/>
                     </div>
