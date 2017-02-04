@@ -19,20 +19,24 @@ button {
 
 orderItemsBox {
   border: 1px solid rgb(41, 41, 41)
-}
-
-.header-top{
-    float: left;
-} 
-  
-.headerItem{
-    width: 150px;
 } 
 
-md-checkbox.md-checked.#3F51B5 ._md-icon { 
+md-checkbox.md-checked.blue .md-icon  { 
     background-color: #3F51B5; 
 }
-    
+
+.modal {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-title {
+    text-transform: capitalize;
+}
+
+button,html,input,select,textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .input-box {
     width: 60px;
     height: 30px;

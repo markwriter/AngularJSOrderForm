@@ -8,59 +8,60 @@ app.controller('firstController', function ($scope) {
     $scope.orderTotalFormatted = '';
     $scope.selectAll = false;
     $scope.itemQuantity = 1;
-    $scope.itemQuantityChoices = [1,2,3,4,5];
+    $scope.itemQuantityChoices = [1, 2, 3, 4, 5];
     
-    $scope.toggleAllItems = function(){ 
+    $scope.toggleAllItems = function () {
         var toggleValue = true;
-        if ($scope.isAllSelected() || $scope.isIndeterminate()){
+        if ($scope.isAllSelected() || $scope.isIndeterminate()) {
             toggleValue = false;
-        } 
+        }
         
-        $scope.toppingsList.forEach(function(item){
-            if(item.product === $scope.toppingFilter) {
-             item.selected = toggleValue;   
+        $scope.toppingsList.forEach(function (item) {
+            if (item.product === $scope.toppingFilter) {
+                item.selected = toggleValue;
             }
-        });            
-    }
+        });
+    };
 
     //determines if all items are checked    
-    $scope.isAllSelected = function() {
+    $scope.isAllSelected = function () {
         var itemCount = 0;
         var selectedToppingCount = 0;
-        $scope.toppingsList.forEach(function(item){
-            if(item.product === $scope.toppingFilter) {
-             itemCount++;  
+        $scope.toppingsList.forEach(function (item) {
+            if (item.product === $scope.toppingFilter) {
+                itemCount++;
                 if (item.selected) {
-                    selectedToppingCount++
+                    selectedToppingCount++;
                 }
             }
-        }); 
+        });
         
         return (selectedToppingCount === itemCount);
-    };   
+    };
     
     //Finds if only some of the items are checked.
-    $scope.isIndeterminate = function() {
+    $scope.isIndeterminate = function () {
         var itemCount = 0;
         var selectedToppingCount = 0;
-        $scope.toppingsList.forEach(function(item){
-            if(item.product === $scope.toppingFilter) {
-             itemCount++;  
+        $scope.toppingsList.forEach(function (item) {
+            if (item.product === $scope.toppingFilter) {
+				itemCount++;
                 if (item.selected) {
-                    selectedToppingCount++
+                    selectedToppingCount++;
                 }
             }
-        }); 
+        });
         
         return (selectedToppingCount !== 0 && selectedToppingCount !== itemCount);
-   };
+    };
     
-    $scope.findItemById = function(id){
-        
-    }    
-    $scope.deleteItem = function(id){
-        for (var i=0; i < $scope.foodOrderItems.length; i++) {
-            if ($scope.foodOrderItems[i].id  === id ) {
+    $scope.findItemById = function (id) {
+    };
+
+    $scope.deleteItem = function (id) {
+        var i = 0;
+        for (i < $scope.foodOrderItems.length; i++; ) {
+            if ($scope.foodOrderItems[i].id  === id) {
                 $scope.foodOrderItems.splice(i, 1);
             }
         }   
