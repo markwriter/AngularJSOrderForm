@@ -54,7 +54,8 @@
                             <td>
                                 <table class="table table-condensed table-striped" ng-show="foodOrderItem.toppings">
                                     <tbody>
-                                        <tr ng-repeat="itemTopping in foodOrderItem.toppings">       <td>{{itemTopping.name}}</td>
+                                        <tr ng-repeat="itemTopping in foodOrderItem.toppings">       
+                                            <td>{{itemTopping.name}}</td>
                                             <td>${{itemTopping.price}}</td>
                                         </tr>
                                     </tbody>
