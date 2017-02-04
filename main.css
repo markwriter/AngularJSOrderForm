@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+html {
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #d9d9d9;
     text-align: center;
+    padding: 0px;
+    margin: 0px;
 }
 
 #body {width: 100%;}
-#body h2 {color: black; font-family: 'Montserrat', sans-serif;}
+#body h2 {color: black; margin: 0px 0px 15px 0px;}
+#body button {height: 40px; width: 150px;}
 
 header h2 {
     font-family: 'Montserrat', sans-serif;
@@ -16,7 +23,7 @@ header h2 {
 }
 
 header img {
-    margin: 5px 0px 5px 0px;
+    margin: 5px 0px 0px 0px;
     height: 35px;
 }
 
@@ -24,17 +31,11 @@ md-checkbox {
     width: 108px;
 }
 
-button {
-    font-family: 'Montserrat', sans-serif;
-    height: 40px;
-    width: 150px;
-}
-
 .close {
     width: auto;
 }
 
-orderItemsBox {
+.orderItemsBox {
   border: 1px solid rgb(41, 41, 41)
 } 
 
@@ -44,11 +45,6 @@ md-checkbox.md-checked .md-ink-ripple {
 
 md-checkbox.md-checked ._md-icon  { 
     background-color: #3F51B5;
-}
-
-.containerDiv {
-    padding-left: 150px;
-    padding-right: 150px;
 }
 
 .modal {

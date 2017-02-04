@@ -1,3 +1,5 @@
+/*jslint white:true */
+/*global angular */
 var app = angular.module("foodOrderApp", ['ngMaterial', 'ngMessages']);
 
 app.controller('firstController', function ($scope) {
@@ -25,13 +27,12 @@ app.controller('firstController', function ($scope) {
 
     //determines if all items are checked    
     $scope.isAllSelected = function () {
-        var itemCount = 0;
-        var selectedToppingCount = 0;
+        var itemCount = 0, selectedToppingCount = 0;
         $scope.toppingsList.forEach(function (item) {
             if (item.product === $scope.toppingFilter) {
-                itemCount++;
+                itemCount = itemCount + 1;
                 if (item.selected) {
-                    selectedToppingCount++;
+                    selectedToppingCount = selectedToppingCount + 1;
                 }
             }
         });
@@ -41,13 +42,12 @@ app.controller('firstController', function ($scope) {
     
     //Finds if only some of the items are checked.
     $scope.isIndeterminate = function () {
-        var itemCount = 0;
-        var selectedToppingCount = 0;
+        var itemCount = 0, selectedToppingCount = 0;
         $scope.toppingsList.forEach(function (item) {
             if (item.product === $scope.toppingFilter) {
-				itemCount++;
+				itemCount = itemCount + 1;
                 if (item.selected) {
-                    selectedToppingCount++;
+                    selectedToppingCount = selectedToppingCount + 1;
                 }
             }
         });
@@ -59,8 +59,8 @@ app.controller('firstController', function ($scope) {
     };
 
     $scope.deleteItem = function (id) {
-        var i = 0;
-        for (i < $scope.foodOrderItems.length; i++; ) {
+        var i;
+        for (i = 0, i < $scope.foodOrderItems.length, i = +1;) {
             if ($scope.foodOrderItems[i].id  === id) {
                 $scope.foodOrderItems.splice(i, 1);
             }

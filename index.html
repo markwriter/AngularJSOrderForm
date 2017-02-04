@@ -23,13 +23,12 @@
     <body ng-app="foodOrderApp" ng-controller="firstController">
         <div id="body">
             <h2>Select Item:</h2>
-            <div class="containerDiv">
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('pizza')">Pizza</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('cake')">Cake</button>
             <button type="button" data-toggle="modal" data-target="#toppingModal" OpenLargeModal class="btn btn-primary" ng-click="addFoodItem('taco')">Taco</button>
-            </div>
-            <div ng-show="foodOrderItems.length > 0">
-                <div class="orderDetailContainer">
+        </div>
+        <div ng-show="foodOrderItems.length > 0">
+            <div class="orderDetailContainer">
                 <table class="table table-striped header-head" >
                         <thead>
                             <tr>
@@ -43,7 +42,7 @@
                         </thead>                    
                     <tbody class="header-top">
                         <tr ng-repeat="foodOrderItem in foodOrderItems">
-                            <td>
+                            <td style="text-transform: capitalize;">
                                 {{foodOrderItem.name}}
                             </td>
                             <td>
@@ -55,8 +54,7 @@
                             <td>
                                 <table class="table table-condensed table-striped" ng-show="foodOrderItem.toppings">
                                     <tbody>
-                                        <tr ng-repeat="itemTopping in foodOrderItem.toppings">           
-                                            <td>{{itemTopping.name}}</td>
+                                        <tr ng-repeat="itemTopping in foodOrderItem.toppings">       <td>{{itemTopping.name}}</td>
                                             <td>${{itemTopping.price}}</td>
                                         </tr>
                                     </tbody>
@@ -76,51 +74,50 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
-                <h4>The order total is: &#36;{{orderTotalFormatted}}</h4>
             </div>
-              <div class="modal fade" id="toppingModal" role="dialog">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h3 class="modal-title">Select {{toppingFilter}} Toppings</h3>
-                    </div>
-                    <div class="modal-body">                        
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <md-checkbox
-											aria-label="Select All"
-											class="selectAll"
-											ng-checked="isAllSelected()"
-											md-indeterminate="isIndeterminate()"
-											ng-click="toggleAllItems()">
-                                            {{ (isAllSelected()) || (isIndeterminate()) ? 'Clear All' : 'Select All' }}
-                                        </md-checkbox>
-                                    </th>  
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="topping in toppingsList | filter:{product: toppingFilter}">
-                                    <td><md-checkbox ng-model="topping.selected"></md-checkbox></td>
-                                    <td>{{topping.name}}</td>
-                                    <td>${{topping.price}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h4>How Many</h4>
-                        <br>
-                        <input class="input-box" type="number" min="1" max="5"/>
-                    </div>
-                        <div class="modal-footer">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="completeItem()">Order</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>   
-                            </div>
+            <h4>The order total is: &#36;{{orderTotalFormatted}}</h4>
+        </div>
+          <div class="modal fade" id="toppingModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title">Select {{toppingFilter}} Toppings</h3>
+                </div>
+                <div class="modal-body">                        
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <md-checkbox
+                                        aria-label="Select All"
+                                        class="selectAll"
+                                        ng-checked="isAllSelected()"
+                                        md-indeterminate="isIndeterminate()"
+                                        ng-click="toggleAllItems()">
+                                        {{ (isAllSelected()) || (isIndeterminate()) ? 'Clear All' : 'Select All' }}
+                                    </md-checkbox>
+                                </th>  
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="topping in toppingsList | filter:{product: toppingFilter}">
+                                <td><md-checkbox ng-model="topping.selected"></md-checkbox></td>
+                                <td>{{topping.name}}</td>
+                                <td>${{topping.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>How Many</h4>
+                    <br>
+                    <input class="input-box" type="number" min="1" max="5"/>
+                </div>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="completeItem()">Order</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>   
                         </div>
                     </div>
                 </div>
